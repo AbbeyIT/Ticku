@@ -74,6 +74,7 @@ export default function ExploreScreen() {
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
+          style={styles.tabsScroll}
           contentContainerStyle={styles.tabsWrap}
         >
           {TABS.map((t) => (
@@ -198,15 +199,23 @@ const styles = StyleSheet.create({
     color: Colors.text,
     fontSize: 14,
   },
-  tabsWrap: { paddingHorizontal: 16, gap: 8, paddingBottom: 8 },
+  tabsScroll: { flexGrow: 0 },
+  tabsWrap: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    gap: 8,
+    alignItems: "center",
+  },
   tab: {
     backgroundColor: Colors.surface,
     borderRadius: 20,
+    minHeight: 34,
     paddingVertical: 6,
     paddingHorizontal: 14,
+    justifyContent: "center",
   },
   tabActive: { backgroundColor: Colors.accent },
-  tabText: { fontSize: 13, color: Colors.text3, fontWeight: "500" },
+  tabText: { fontSize: 13, lineHeight: 18, color: Colors.text3, fontWeight: "500" },
   tabTextActive: { color: Colors.bg },
   card: {
     backgroundColor: Colors.bg2,
