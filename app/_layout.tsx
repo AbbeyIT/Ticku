@@ -24,7 +24,10 @@ export default function RootLayout() {
                 contentStyle: { backgroundColor: Colors.bg },
               }}
             >
-              <Stack.Screen name="(tabs)" />
+              {/* Splash / opening screen */}
+              <Stack.Screen name="index" options={{ animation: "none" }} />
+              {/* Tab screens — fade in from splash */}
+              <Stack.Screen name="(tabs)" options={{ animation: "fade" }} />
               <Stack.Screen name="recipe/[id]" />
               <Stack.Screen name="recipe/create" />
               <Stack.Screen name="timer/[id]" />
