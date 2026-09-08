@@ -23,7 +23,7 @@ See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how t
 
 ---
 
-### Join us in discussions
+## Join us in discussions
 
 This project use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/AbbeyIT/Ticku/discussions).
 

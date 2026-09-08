@@ -2,11 +2,11 @@ import { Colors, Radius } from "@/constants/theme";
 import { useRouter } from "expo-router";
 import React from "react";
 import {
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -92,7 +92,7 @@ export default function MoreScreen() {
           ))}
 
           <View style={styles.footer}>
-            <Text style={styles.footerText}>Ticku v1.0.0</Text>
+            <Text style={styles.footerText}>Ticku v1.0.1</Text>
             <Text style={styles.footerText}>
               No account needed · Your data stays local
             </Text>
