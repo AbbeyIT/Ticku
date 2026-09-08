@@ -4,6 +4,10 @@ import { Text } from "react-native";
 
 import { Colors } from "@/constants/theme";
 
+import { AntDesign } from "@expo/vector-icons";
+import { coffeeBean } from "@lucide/lab";
+import { Icon } from "lucide-react-native";
+
 function TabIcon({ emoji, focused }: { emoji: string; focused: boolean }) {
   return (
     <Text style={{ fontSize: 22, opacity: focused ? 1 : 0.45 }}>{emoji}</Text>
@@ -32,28 +36,52 @@ export default function TabLayout() {
         name="index"
         options={{
           title: "Brew",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="🏠" focused={focused} />,
+          tabBarIcon: ({ focused, color, size }) => (
+            <AntDesign
+              name="home"
+              size={size || 24}
+              color={focused ? "#e8b84b" : color}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
           title: "Explore",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="🔍" focused={focused} />,
+          tabBarIcon: ({ focused, color, size }) => (
+            <AntDesign
+              name="compass"
+              size={size || 24}
+              color={focused ? "#e8b84b" : color}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="beans"
         options={{
           title: "Beans",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="🫘" focused={focused} />,
+          tabBarIcon: ({ focused, color, size }) => (
+            <Icon
+              iconNode={coffeeBean}
+              size={size || 24}
+              color={focused ? "#e8b84b" : color}
+            />
+          ),
         }}
       />
       <Tabs.Screen
         name="more"
         options={{
           title: "More",
-          tabBarIcon: ({ focused }) => <TabIcon emoji="⋯" focused={focused} />,
+          tabBarIcon: ({ focused, color, size }) => (
+            <AntDesign
+              name="setting"
+              size={24}
+              color={focused ? "#e8b84b" : color}
+            />
+          ),
         }}
       />
     </Tabs>

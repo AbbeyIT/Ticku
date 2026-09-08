@@ -48,7 +48,7 @@ export default function HomeScreen() {
             <Text style={styles.ctaIcon}>+</Text>
           </TouchableOpacity>
 
-          {data && data.brewLog.length > 0 && (
+          {data && (
             <TouchableOpacity
               style={styles.statsRow}
               onPress={() => router.push("/more/stats" as any)}
@@ -72,28 +72,6 @@ export default function HomeScreen() {
             action="See All"
             onAction={() => router.push("/(tabs)/explore" as any)}
           />
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.tabsWrap}
-          >
-            {METHODS.map((m) => (
-              <TouchableOpacity
-                key={m}
-                style={[styles.tab, activeTab === m && styles.tabActive]}
-                onPress={() => setActiveTab(m)}
-              >
-                <Text
-                  style={[
-                    styles.tabText,
-                    activeTab === m && styles.tabTextActive,
-                  ]}
-                >
-                  {m}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
 
           {filtered.length === 0 ? (
             <EmptyState
@@ -104,7 +82,7 @@ export default function HomeScreen() {
               onAction={() => router.push("/recipe/create" as any)}
             />
           ) : (
-            filtered.slice(0, 8).map((recipe) => (
+            filtered.slice(0, 3).map((recipe) => (
               <TouchableOpacity
                 key={recipe.id}
                 style={styles.recipeCard}
@@ -165,7 +143,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginTop: 16,
     marginBottom: 4,
-    backgroundColor: Colors.surface,
+    backgroundColor: Colors.accent,
     borderWidth: 0.5,
     borderColor: Colors.border2,
     borderRadius: Radius.md,
@@ -176,12 +154,12 @@ const styles = StyleSheet.create({
   },
   ctaTitle: {
     fontSize: 15,
-    color: Colors.text,
+    color: Colors.bg,
     fontWeight: "600",
     marginBottom: 2,
   },
-  ctaSub: { fontSize: 12, color: Colors.text3 },
-  ctaIcon: { fontSize: 28, color: Colors.accent },
+  ctaSub: { fontSize: 12, color: Colors.bg3 },
+  ctaIcon: { fontSize: 28, color: Colors.bg3 },
   statsRow: {
     flexDirection: "row",
     marginHorizontal: 16,
@@ -205,16 +183,6 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     letterSpacing: 0.4,
   },
-  tabsWrap: { paddingHorizontal: 16, gap: 8, paddingBottom: 4 },
-  tab: {
-    backgroundColor: Colors.surface,
-    borderRadius: 20,
-    paddingVertical: 6,
-    paddingHorizontal: 14,
-  },
-  tabActive: { backgroundColor: Colors.accent },
-  tabText: { fontSize: 13, color: Colors.text3, fontWeight: "500" },
-  tabTextActive: { color: Colors.bg },
   recipeCard: {
     backgroundColor: Colors.bg2,
     borderWidth: 0.5,
@@ -222,7 +190,8 @@ const styles = StyleSheet.create({
     borderRadius: Radius.md,
     padding: 14,
     marginHorizontal: 16,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 5,
   },
   recipeTop: {
     flexDirection: "row",
